@@ -23,13 +23,23 @@
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
 				Parent root = loader.load();
 				Scene scene = new Scene(root);
-	
-				Image image1 = new Image(new File("src/images/logo.png").toURI().toString());
+//				Scene scene1 = new Scene(root);	Levels 1 - 5
+//				Scene scene2 = new Scene(root);
+//				Scene scene3 = new Scene(root);
+//				Scene scene4 = new Scene(root);
+//				Scene scene5 = new Scene(root);
+				
+				Image image1 = new Image(new File("src/images/tempLogo.jpg").toURI().toString());
 				MainSceneController controller = loader.getController();
 				ImageView view1 = controller.view1;
+				ImageView view2 = controller.view2;
+
+				
+		
+				Image logo = new Image(new File("src/images/rat-spinning.gif").toURI().toString());
 	
 				view1.setImage(image1);
-	
+				view2.setImage(logo);
 				primaryStage.setScene(scene);
 				primaryStage.show();
 	

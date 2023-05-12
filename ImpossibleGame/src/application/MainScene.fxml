@@ -6,16 +6,30 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="502.0" prefWidth="580.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
+<AnchorPane id="anchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="454.0" prefWidth="571.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
    <children>
-      <Label layoutX="14.0" layoutY="25.0" prefHeight="18.0" prefWidth="241.0" text="Title" />
-      <TextField fx:id="tfTitle" layoutX="14.0" layoutY="94.0" prefHeight="26.0" prefWidth="242.0" />
-      <Button layoutX="108.0" layoutY="359.0" mnemonicParsing="false" onAction="#btnOkClicked" prefHeight="26.0" prefWidth="66.0" text="Ok" />
-      <ImageView fx:id="view1" fitHeight="76.0" fitWidth="89.0" layoutX="95.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <TextField fx:id="tfTitle" layoutX="166.0" layoutY="193.0" prefHeight="26.0" prefWidth="242.0" />
+      <Button layoutX="254.0" layoutY="227.0" mnemonicParsing="false" onAction="#btnOkClicked" prefHeight="26.0" prefWidth="66.0" text="START!" />
+      <ImageView fx:id="view1" fitHeight="134.0" fitWidth="431.0" layoutX="93.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../images/logo.png" />
+            <Image url="@../images/tempLogo.jpg" />
          </image>
       </ImageView>
+      <ImageView fx:id="view2" fitHeight="150.0" fitWidth="200.0" layoutX="190.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rat-spinning.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="179.0" layoutY="414.0" prefHeight="26.0" prefWidth="242.0" text="Develeoped By: Group GMC" textAlignment="CENTER">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="113.0" layoutY="26.0" prefHeight="43.0" prefWidth="374.0" text="THE IMPOSSIBLE GAME">
+         <font>
+            <Font name="Bauhaus 93" size="37.0" />
+         </font></Label>
    </children>
 </AnchorPane>

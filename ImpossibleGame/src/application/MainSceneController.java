@@ -12,7 +12,7 @@ public class MainSceneController {
 	private TextField tfTitle;
 	
 	@FXML ImageView view1;
-	
+	@FXML ImageView view2;
 	// Event Listener on Button.onAction
 	@FXML
 	public void btnOkClicked(ActionEvent event) {
