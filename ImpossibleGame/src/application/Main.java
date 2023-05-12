@@ -14,8 +14,12 @@
 	import javafx.scene.layout.BorderPane;
 	import javafx.scene.layout.AnchorPane;
 	
+	import javafx.scene.media.Media;
+	import javafx.scene.media.MediaPlayer;
+
 	
 	public class Main extends Application {
+		private MediaPlayer mediaPlayer;
 		@Override
 		public void start(Stage primaryStage) {
 			try {
@@ -29,13 +33,23 @@
 //				Scene scene4 = new Scene(root);
 //				Scene scene5 = new Scene(root);
 				
+				String musicFile = "src/sounds/GameMusic.mp3"; // Replace with your audio file's path
+				Media sound = new Media(new File(musicFile).toURI().toString());
+
+				MediaPlayer mediaPlayer = new MediaPlayer(sound);
+				mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+				
+
+				mediaPlayer.play();
+				
 				Image image1 = new Image(new File("src/images/tempLogo.jpg").toURI().toString());
 				MainSceneController controller = loader.getController();
 				ImageView view1 = controller.view1;
 				ImageView view2 = controller.view2;
 
 				
-		
+
+
 				Image logo = new Image(new File("src/images/rat-spinning.gif").toURI().toString());
 	
 				view1.setImage(image1);
@@ -48,7 +62,13 @@
 			}
 		}
 		
+		@Override
+	    public void stop() throws Exception {
+	        super.stop();
+	        mediaPlayer.stop();
+	    }
+		
 		public static void main(String[] args) {
 			launch(args);
-		}
+		} 
 	}
