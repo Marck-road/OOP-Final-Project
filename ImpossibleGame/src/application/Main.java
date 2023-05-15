@@ -38,7 +38,7 @@
 
 				MediaPlayer mediaPlayer = new MediaPlayer(sound);
 				mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
-				
+				mediaPlayer.setVolume(0.05);
 
 				mediaPlayer.play();
 				
@@ -47,13 +47,13 @@
 				ImageView view1 = controller.view1;
 				ImageView view2 = controller.view2;
 
-				
-
-
 				Image logo = new Image(new File("src/images/rat-spinning.gif").toURI().toString());
 	
 				view1.setImage(image1);
 				view2.setImage(logo);
+				
+				controller.setStartScreen(scene);
+				
 				primaryStage.setScene(scene);
 				primaryStage.show();
 	

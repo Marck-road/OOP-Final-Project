@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="anchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="454.0" prefWidth="571.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
+<AnchorPane id="anchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainSceneController">
    <children>
-      <TextField fx:id="tfTitle" layoutX="166.0" layoutY="193.0" prefHeight="26.0" prefWidth="242.0" />
-      <Button layoutX="254.0" layoutY="227.0" mnemonicParsing="false" onAction="#btnOkClicked" prefHeight="26.0" prefWidth="66.0" text="START!" />
-      <ImageView fx:id="view1" fitHeight="134.0" fitWidth="431.0" layoutX="93.0" layoutY="266.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="view1" fitHeight="134.0" fitWidth="431.0" layoutX="116.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/tempLogo.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="view2" fitHeight="150.0" fitWidth="200.0" layoutX="190.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="view2" fitHeight="150.0" fitWidth="200.0" layoutX="235.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/rat-spinning.gif" />
          </image>
       </ImageView>
-      <Label layoutX="179.0" layoutY="414.0" prefHeight="26.0" prefWidth="242.0" text="Develeoped By: Group GMC" textAlignment="CENTER">
+      <Label layoutX="196.0" layoutY="366.0" prefHeight="26.0" prefWidth="242.0" text="Develeoped By: Group GMC" textAlignment="CENTER">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="113.0" layoutY="26.0" prefHeight="43.0" prefWidth="374.0" text="THE IMPOSSIBLE GAME">
+      <Label layoutX="130.0" layoutY="26.0" prefHeight="43.0" prefWidth="374.0" text="THE IMPOSSIBLE GAME">
          <font>
             <Font name="Bauhaus 93" size="37.0" />
          </font></Label>
+      <Text layoutX="137.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRESS SPACE TO START" textAlignment="CENTER">
+         <font>
+            <Font name="Lucida Sans Typewriter Regular" size="27.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
