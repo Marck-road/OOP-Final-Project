@@ -27,11 +27,6 @@
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("MainScene.fxml"));
 				Parent root = loader.load();
 				Scene scene = new Scene(root);
-//				Scene scene1 = new Scene(root);	Levels 1 - 5
-//				Scene scene2 = new Scene(root);
-//				Scene scene3 = new Scene(root);
-//				Scene scene4 = new Scene(root);
-//				Scene scene5 = new Scene(root);
 				
 				String musicFile = "src/sounds/GameMusic.mp3"; // Replace with your audio file's path
 				Media sound = new Media(new File(musicFile).toURI().toString());
