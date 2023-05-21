@@ -1,6 +1,7 @@
 package application;
 
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
@@ -26,6 +27,7 @@ public class Rat {
     private double speed = 3.0;
     private boolean movingForward = false;
     private Timeline timeline = null; 
+    private boolean isMoving = false;
 	
 	public Rat(ImageView imageView) {
         this.imageView = imageView;
@@ -49,7 +51,10 @@ public class Rat {
 	}
 	
 	public void goForth() {
-	    int x;
+		
+		if(!isMoving) {
+			isMoving = true;
+		
 	    
 	        timeline = new Timeline(new KeyFrame(Duration.millis(16), event -> {
 	        xVelocity = Math.cos(Math.toRadians(rotationAngle)) * speed;
@@ -83,6 +88,7 @@ public class Rat {
 	        
 	        if(checkCollision()) {
 		    	timeline.stop();
+                isMoving = false; // Reset the flag when stopped
 		    	return;
 		    }
 	        
@@ -94,7 +100,7 @@ public class Rat {
 	    // Start the timeline
 	    timeline.play();
 	    
-	    
+		}
 	}
 	
 	public void bounceBack() {
@@ -114,17 +120,18 @@ public class Rat {
     }
 	 
 	 private boolean checkCollision() {
-		    List<Node> lines = imageView.getScene().getRoot().getChildrenUnmodifiable();
+		    List<Node> nodes = new ArrayList<>();
+		    collectLines(imageView.getScene().getRoot(), nodes); // Collect all Line nodes in the scene graph
 
 		    Rectangle hitBox = new Rectangle(imageView.getX(), imageView.getY(), imageView.getFitWidth(), imageView.getFitHeight());
 
-		    for (Node line : lines) {
-		        if (line instanceof Line) {
-		            Line currentLine = (Line) line;
+		    for (Node node : nodes) {
+		        if (node instanceof Line) {
+		            Line currentLine = (Line) node;
 
 		            if (hitBox.getBoundsInParent().intersects(currentLine.getBoundsInParent())) {
 		                // Rat has collided with a line, stop moving
-		                System.out.println("You hit a line!");
+		                System.out.println("You hit a line!" + currentLine.getId());
 		                timeline.stop();
 		                return true;
 		            }
@@ -133,6 +140,20 @@ public class Rat {
 
 		    return false;
 		}
+
+		private void collectLines(Node node, List<Node> nodes) {
+		    if (node instanceof Line) {
+		        nodes.add(node);
+		    }
+
+		    if (node instanceof Parent) {
+		        Parent parent = (Parent) node;
+		        for (Node child : parent.getChildrenUnmodifiable()) {
+		            collectLines(child, nodes); // Recursively collect lines from child nodes
+		        }
+		    }
+		}
+
 
 
 
