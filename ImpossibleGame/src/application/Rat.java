@@ -42,11 +42,26 @@ public class Rat {
 		rotationAngle -= 5.0;
 		imageView.setRotate(rotationAngle);
 		System.out.println(imageView.getX() + " " + imageView.getY());
+		
+//		if(checkCollision()) {
+//			rotationAngle += 5.0;
+//			imageView.setRotate(rotationAngle);
+//			
+//			System.out.println("Working");
+//			return;
+//		}
 	}
 	
 	public void moveRight() {
 		rotationAngle += 5.0;
 		imageView.setRotate(rotationAngle);
+		
+//		if(checkCollision()) {
+//			rotationAngle -= 5.0;
+//			imageView.setRotate(rotationAngle);
+//			System.out.println("Working");
+//			return;
+//		}
 	}
 	
 	public void turnAround() {
@@ -93,6 +108,19 @@ public class Rat {
 	        if(checkCollision()) {
 		    	timeline.stop();
                 isMoving = false; // Reset the flag when stopped
+                
+                rotationAngle -= 180.0;
+        		imageView.setRotate(rotationAngle);
+        		
+        		while(checkCollision()) {
+        			double stepDistance = 2.0;
+            		double newX = imageView.getX() + Math.cos(Math.toRadians(rotationAngle)) * stepDistance;
+            		double newY = imageView.getY() + Math.sin(Math.toRadians(rotationAngle)) * stepDistance;
+
+            		imageView.setX(newX);
+            		imageView.setY(newY);
+        		}
+        		
 		    	return;
 		    }
 	        
@@ -139,7 +167,10 @@ public class Rat {
 		            Shape lineShape = new javafx.scene.shape.Line(lineBounds.getMinX(), lineBounds.getMinY(), lineBounds.getMaxX(), lineBounds.getMaxY());
 		            Shape intersect = Shape.intersect(lineShape, imageShape);
 		            if (lineBounds.intersects(bounds) && !intersect.getBoundsInLocal().isEmpty()) {
-		                return true;
+		                
+		            	System.out.println(line.getId());
+		            	
+		            	return true;
 		            }
 		        }
 		    }
