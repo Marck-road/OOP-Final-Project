@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level1Controller">
    <children>
       <Text layoutX="16.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" />
       <Line endX="15.400001525878906" layoutX="98.0" layoutY="321.0" startX="-100.0" strokeWidth="6.0" />
@@ -18,7 +18,7 @@
       <Line endX="15.400001525878906" layoutX="584.0" layoutY="145.0" startX="-148.20001220703125" startY="1.52587890625E-5" strokeWidth="6.0" />
       <Line endX="67.00001525878906" endY="-37.163978576660156" layoutX="178.0" layoutY="129.0" startX="-116.24266052246094" startY="-37.16398620605469" strokeWidth="6.0" />
       <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="367.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
-      <ImageView fitHeight="50.0" fitWidth="99.0" layoutX="-15.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="you" fitHeight="50.0" fitWidth="99.0" layoutX="-15.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/rat.png" />
          </image>

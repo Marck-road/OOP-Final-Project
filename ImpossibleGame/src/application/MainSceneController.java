@@ -9,8 +9,8 @@ import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.lang.System.Logger.Level;
 
-import javafx.event.ActionEvent;
 
 public class MainSceneController {
 
@@ -18,34 +18,48 @@ public class MainSceneController {
 	@FXML ImageView view2;
 	private Scene startScreen;
 	
+	int currentLvl = 0;
+    private LevelController currentLevelController;
+
+	
 	public void setStartScreen(Scene startScreen) {
         this.startScreen = startScreen;
 	    goToNextLevel();
 
     }
 	
-	public void goToNextLevel() {
+	private void goToNextLevel() {
         startScreen.setOnKeyPressed(e -> {
             if(e.getCode() == KeyCode.SPACE) {
-                try {
-                    FXMLLoader upNextLvl = new FXMLLoader(getClass().getResource("Level1.fxml"));
-                    Parent root = upNextLvl.load();
-                    Scene newScene = new Scene(root);
-                    
-                    Stage stage = (Stage) startScreen.getWindow();
-                    stage.setScene(newScene);
-    				stage.show();
-
-                    
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+            	if (currentLevelController == null || currentLevelController.isLevelCompleted()) {
+                    // Move to the next level
+                    currentLvl++;
+                    loadLevel(currentLvl);
                 }
             }
         });
-
+        
     }
 	
-	// Event Listener on Button.onAction
+	private void loadLevel(int levelNumber) {
+        try {
+        	FXMLLoader loader = new FXMLLoader(getClass().getResource("Level" + levelNumber + ".fxml"));
+            Parent root = loader.load();
+            Scene newScene = new Scene(root);
+            
+            Level1Controller levelController = loader.getController();
+            levelController.initialize(newScene);
+            
+            Stage stage = (Stage) startScreen.getWindow();
+            stage.setScene(newScene);
+			stage.show();
+			
+//			currentLevelController = loader.getController();
+            
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 }
 
 
