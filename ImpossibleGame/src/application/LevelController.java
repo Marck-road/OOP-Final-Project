@@ -17,18 +17,21 @@ public class LevelController {
 	    you.getScene().setOnKeyPressed(event -> {
 	        KeyCode keyCode = event.getCode();
 	        if (keyCode == KeyCode.LEFT) {
-	    		System.out.println("\nLeft working");
 
 	            rat.moveLeft();
 	        } else if (keyCode == KeyCode.RIGHT) {
-	    		System.out.println("\nRight working");
 
 	        	rat.moveRight();
-	        } 
+	        } else if (keyCode == KeyCode.SPACE) {
+	            rat.goForth();
+	            
+
+	        }else if (keyCode == KeyCode.DOWN) {
+	            rat.turnAround();
+	            
+
+	        }
 	        
-//	        if (/* condition to check level completion */) {
-//                levelCompleted = true;
-//           }
 	    });
 	}
 	

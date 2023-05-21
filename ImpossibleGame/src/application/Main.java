@@ -31,7 +31,7 @@
 				String musicFile = "src/sounds/GameMusic.mp3"; // Replace with your audio file's path
 				Media sound = new Media(new File(musicFile).toURI().toString());
 
-				MediaPlayer mediaPlayer = new MediaPlayer(sound);
+				mediaPlayer = new MediaPlayer(sound);
 				mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
 				mediaPlayer.setVolume(0.05);
 

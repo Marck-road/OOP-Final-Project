@@ -7,23 +7,23 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level1Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level1Controller">
    <children>
-      <Text layoutX="16.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" />
-      <Line endX="15.400001525878906" layoutX="98.0" layoutY="321.0" startX="-100.0" strokeWidth="6.0" />
-      <Line endX="15.4000244140625" endY="90.99996948242188" layoutX="165.0" layoutY="309.0" startX="15.4000244140625" startY="-90.00001525878906" strokeWidth="6.0" />
-      <Line endX="15.400001525878906" layoutX="283.0" layoutY="271.0" startX="-100.0" strokeWidth="6.0" />
-      <Line endX="135.0" endY="-314.0" layoutX="113.0" layoutY="314.0" startX="135.0" startY="-150.24266052246094" strokeWidth="6.0" />
-      <Line endX="243.79998779296875" endY="85.99996948242188" layoutX="145.0" layoutY="317.0" startX="243.79998779296875" startY="-117.0" strokeWidth="6.0" />
-      <Line endX="15.400001525878906" layoutX="584.0" layoutY="145.0" startX="-148.20001220703125" startY="1.52587890625E-5" strokeWidth="6.0" />
-      <Line endX="67.00001525878906" endY="-37.163978576660156" layoutX="178.0" layoutY="129.0" startX="-116.24266052246094" startY="-37.16398620605469" strokeWidth="6.0" />
+      <Text layoutX="6.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" />
+      <Line fx:id="line1" endX="15.400001525878906" layoutX="95.0" layoutY="321.0" startX="-100.0" strokeWidth="6.0" />
+      <Line fx:id="line2" endX="15.4000244140625" endY="90.99996948242188" layoutX="165.0" layoutY="312.0" startX="15.4000244140625" startY="-90.00001525878906" strokeWidth="6.0" />
+      <Line fx:id="line3" endX="15.400001525878906" layoutX="283.0" layoutY="271.0" startX="-100.0" strokeWidth="6.0" />
+      <Line fx:id="line5" endX="135.0" endY="-314.0" layoutX="113.0" layoutY="309.0" startX="135.0" startY="-150.24266052246094" strokeWidth="6.0" />
+      <Line fx:id="line6" endX="243.79998779296875" endY="85.99996948242188" layoutX="145.0" layoutY="317.0" startX="243.79998779296875" startY="-117.0" strokeWidth="6.0" />
+      <Line fx:id="line7" endX="200.0" layoutX="398.0" layoutY="167.0" startX="61.0" strokeWidth="6.0" />
+      <Line fx:id="line4" endX="67.00001525878906" endY="-37.163978576660156" layoutX="178.0" layoutY="129.0" startX="-116.24266052246094" startY="-37.16398620605469" strokeWidth="6.0" />
       <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="367.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
-      <ImageView fx:id="you" fitHeight="50.0" fitWidth="99.0" layoutX="-15.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="you" fitHeight="50.0" fitWidth="99.0" layoutX="-16.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/rat.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="79.0" layoutX="518.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="60.0" fitWidth="79.0" layoutX="514.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/cheese.png" />
          </image>
