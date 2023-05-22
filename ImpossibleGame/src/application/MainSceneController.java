@@ -54,7 +54,7 @@ public class MainSceneController {
             stage.setScene(newScene);
 			stage.show();
 			
-//			currentLevelController = loader.getController();
+//			currentLevelController = levelController();
             
         } catch (IOException ex) {
             ex.printStackTrace();

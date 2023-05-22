@@ -1,5 +1,6 @@
 package application;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,21 +8,29 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Line;
+import javafx.scene.layout.AnchorPane;
+import javafx.fxml.FXMLLoader;
+
 
 public class LevelController {
 	private Rat rat;
 	boolean levelCompleted = false;
 	private List<Line> lines = new ArrayList<>();
+	MediaPlayer mediaPlayer;
 
 	@FXML ImageView you;
+	@FXML ImageView cheese;
+	@FXML AnchorPane rootPane;
 	
 	public void initialize(Scene scene) {
 	    rat = new Rat(you);
 	    System.out.println("\nDisplaying all: ");
-	    collectLinesFromFXML();
 
 	    you.getScene().setOnKeyPressed(event -> {
 	        KeyCode keyCode = event.getCode();
@@ -37,29 +46,40 @@ public class LevelController {
 	        }
 	        
 	    });
+	    
+	    
+
+	    rat.getImageView().boundsInParentProperty().addListener((observable, oldValue, newValue) -> {
+	        if (newValue.intersects(cheese.getBoundsInParent())) {
+	        	rat.stopMovement();
+	            handleCollisionWithCheese();
+	        }
+	    });
 	}
 	
 	public boolean isLevelCompleted() {
-        return true;
+    
+		return true;
     }
 	
-	private void collectLinesFromFXML() {
-	    Scene scene = you.getScene();
-	    Parent root = scene.getRoot();
-	    collectLines(root);
-	}
-	
-	private void collectLines(Node node) {
-	    if (node instanceof Line) {
-	        Line line = (Line) node;
-	        lines.add(line);
-	    }
+	public void handleCollisionWithCheese() {
+		rat.stopMovement();
+		
+        System.out.println("Completed Working");
+        String musicFile = "src/sounds/Victory.mp3"; // Replace with your audio file's path
+		Media sound = new Media(new File(musicFile).toURI().toString());
 
-	    if (node instanceof Parent) {
-	        Parent parent = (Parent) node;
-	        for (Node child : parent.getChildrenUnmodifiable()) {
-	            collectLines(child); // Recursively collect lines from child nodes
-	        }
-	    }
-	}
+		mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.setVolume(0.05);
+		mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.dispose());
+		mediaPlayer.play();
+		
+		String ratCheesePath = "file:src/images/ratCheese.png"; // Replace with the correct path to your image file
+	    Image ratCheeseImage = new Image(ratCheesePath);
+	    cheese.setImage(ratCheeseImage);
+
+	    rootPane.getChildren().remove(you);
+	    levelCompleted = true;
+    }
+	
 }

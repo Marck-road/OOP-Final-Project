@@ -39,6 +39,10 @@ public class Rat {
 	 
 	
 	public void moveLeft() {
+		if (isRatImageRemoved()) {
+            return;
+        }
+		
 		rotationAngle -= 5.0;
 		imageView.setRotate(rotationAngle);
 		System.out.println(imageView.getX() + " " + imageView.getY());
@@ -53,6 +57,11 @@ public class Rat {
 	}
 	
 	public void moveRight() {
+		if (isRatImageRemoved()) {
+            return;
+        }
+		
+		
 		rotationAngle += 5.0;
 		imageView.setRotate(rotationAngle);
 		
@@ -65,13 +74,17 @@ public class Rat {
 	}
 	
 	public void turnAround() {
+		if (isRatImageRemoved()) {
+            return;
+        }
+		
 		rotationAngle -= 180.0;
 		imageView.setRotate(rotationAngle);
 	}
 	
 	public void goForth(List<Line> lines) {
 		
-		if(!isMoving) {
+		if (!isMoving && imageView != null && imageView.getScene() != null) {
 			isMoving = true;
 		
 	    
@@ -90,14 +103,14 @@ public class Rat {
 	            // Hit the left or right edge, bounce back horizontally
 	            System.out.println(screenWidth + " Left " + screenHeight + " " + imageView.getY() + " " + imageView.getX());
 	            xVelocity *= -1;
-	            rotationAngle += 75.0;
+	            rotationAngle += 90.0;
 	            imageView.setRotate(rotationAngle);
 	        }
 
 	        if (imageView.getY() <= -340 || imageView.getY() >= 20) {
 	            // Hit the top or bottom edge, bounce back vertically
 	            System.out.println(screenWidth + " Up " + screenHeight + " " + imageView.getY() + " " + imageView.getX());
-	            rotationAngle += 75.0;
+	            rotationAngle += 90.0;
 	            imageView.setRotate(rotationAngle);
 	            yVelocity *= -1;
 	        }
@@ -152,6 +165,10 @@ public class Rat {
     }
 	 
 	 private boolean checkCollision() {
+		 	if (isRatImageRemoved()) {
+	            return false;
+	        }
+		 
 		    List<Node> nodes = new ArrayList<>();
 		    collectLines(imageView.getScene().getRoot(), nodes);
 
@@ -190,6 +207,22 @@ public class Rat {
 		        }
 		    }
 		}
+	 
+	public ImageView getImageView() {
+        return imageView;
+    }
+	 
+	
+	public void stopMovement() {
+		if(timeline != null) {
+			timeline.stop();
+		}
+	}
+	
+	private boolean isRatImageRemoved() {
+        return imageView == null || imageView.getParent() == null;
+    }
+
 
 
 
