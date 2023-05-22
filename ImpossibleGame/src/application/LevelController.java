@@ -158,7 +158,8 @@ public class LevelController {
 	
 	public void handleDeath(){
 		rat.stopMovement();
-		
+    	controlsEnabled = false;
+
         System.out.println("Completed Working Death");
         String musicFile = "src/sounds/Death.mp3"; // Replace with your audio file's path
 		Media sound = new Media(new File(musicFile).toURI().toString());
