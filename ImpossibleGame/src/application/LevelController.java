@@ -25,6 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 
 
+
 public class LevelController {
 	private Rat rat;
 	boolean levelCompleted = false;
@@ -59,7 +60,9 @@ public class LevelController {
 		            rat.turnAround();
 		        } else if(keyCode == KeyCode.E) {
 		        	handleCollisionWithCheese();
-		        }
+	        	} else if (keyCode == KeyCode.R) {
+	            restartLevel();
+	        	}
 		        
 		    });
 	    
@@ -120,7 +123,7 @@ public class LevelController {
 	}
 	
 	protected Rat getRat() {
-		return this.rat;
+		return rat;
 	}
 	
 	private boolean areYouDead() {
