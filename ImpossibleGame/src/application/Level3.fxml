@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level1Controller">
+   <children>
+      <Text layoutX="6.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 3" />
+      <Circle fill="DODGERBLUE" layoutX="302.0" layoutY="60.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fx:id="you" fitHeight="50.0" fitWidth="99.0" layoutX="256.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rat.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="79.0" layoutX="261.0" layoutY="351.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/cheese.png" />
+         </image>
+      </ImageView>
+      <Line fx:id="l1" endX="286.0" fill="#33ff0000" layoutX="84.0" layoutY="274.0" startX="148.0" stroke="#00ff1a" strokeWidth="20.0" />
+   </children>
+</AnchorPane>
