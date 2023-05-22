@@ -76,6 +76,12 @@ public class MainSceneController implements LevelTransition{
             ex.printStackTrace();
         }
     }
+	
+	public void resetLevel() {
+		System.out.println("Resetted Level " + currentLvl);
+        loadLevel(currentLvl);
+	}
+
 }
 
 

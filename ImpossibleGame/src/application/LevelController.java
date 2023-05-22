@@ -16,9 +16,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
 
 
 public class LevelController {
@@ -28,7 +32,7 @@ public class LevelController {
 	MediaPlayer mediaPlayer;
 	private Scene startScreen;
 	private LevelTransition levelTransition;
-
+	private boolean controlsEnabled = true;
 	@FXML ImageView you;
 	@FXML ImageView cheese;
 	@FXML AnchorPane rootPane;
@@ -38,20 +42,24 @@ public class LevelController {
 	    rat = new Rat(you);
 	    System.out.println("\nDisplaying all: ");
 
-	    you.getScene().setOnKeyPressed(event -> {
-	        KeyCode keyCode = event.getCode();
-	        if (keyCode == KeyCode.LEFT) {
-	            rat.moveLeft();
-	        } else if (keyCode == KeyCode.RIGHT) {
-	        	rat.moveRight();
-	        } else if (keyCode == KeyCode.SPACE) {
-	            rat.goForth(lines);
-	            
-	        }else if (keyCode == KeyCode.DOWN) {
-	            rat.turnAround();
-	        }
-	        
-	    });
+		    you.getScene().setOnKeyPressed(event -> {
+		    	 if (!controlsEnabled) {
+		                return; // Ignore key presses if controls are disabled
+	            }
+		    	 
+		        KeyCode keyCode = event.getCode();
+		        if (keyCode == KeyCode.LEFT) {
+		            rat.moveLeft();
+		        } else if (keyCode == KeyCode.RIGHT) {
+		        	rat.moveRight();
+		        } else if (keyCode == KeyCode.SPACE) {
+		            rat.goForth(lines);
+		            
+		        }else if (keyCode == KeyCode.DOWN) {
+		            rat.turnAround();
+		        }
+		        
+		    });
 	    
 	    
 
@@ -59,6 +67,15 @@ public class LevelController {
 	        if (newValue.intersects(cheese.getBoundsInParent())) {
 	        	rat.stopMovement();
 	            handleCollisionWithCheese();
+	        }
+	    });
+	    
+	    
+	    rat.getImageView().boundsInParentProperty().addListener((observable, oldValue, newValue) -> {
+	        if (areYouDead()) {
+            	System.out.println("You dead");
+            	controlsEnabled = false;
+	            handleDeath();
 	        }
 	    });
 	}
@@ -70,7 +87,7 @@ public class LevelController {
 	
 	public void handleCollisionWithCheese() {
 		rat.stopMovement();
-		
+		controlsEnabled = false;
         System.out.println("Completed Working");
         String musicFile = "src/sounds/Victory.mp3"; // Replace with your audio file's path
 		Media sound = new Media(new File(musicFile).toURI().toString());
@@ -95,6 +112,83 @@ public class LevelController {
 	private void loadNextLevel() {
 		levelTransition.goToNextLevel(); 
 	}
+	
+	private void restartLevel() {
+		levelTransition.resetLevel();
+	}
+	
+	protected Rat getRat() {
+		return rat;
+	}
+	
+	private boolean areYouDead() {
+		if (this.rat.isRatImageRemoved()) {
+            return false;
+        }
+		
+		
+	    List<Node> nodes = new ArrayList<>();
+	    collectSpikes(you.getScene().getRoot(), nodes);
+	    
+	    Bounds bounds = you.getBoundsInParent();
+	    double hitboxWidth = bounds.getWidth() * 0.5; 
+	    double hitboxHeight = bounds.getHeight() * 0.5;
+	    Shape imageShape = new Rectangle(bounds.getMinX(), bounds.getMinY(), hitboxWidth, hitboxHeight);
+
+	    for (Node node : nodes) {
+	        if (node instanceof Polygon) {
+	        	Polygon spike = (Polygon) node;
+	            Bounds spikeBounds = spike.getBoundsInParent();
+	            Shape spikeShape = new javafx.scene.shape.Line(spikeBounds.getMinX(), spikeBounds.getMinY(), spikeBounds.getMaxX(), spikeBounds.getMaxY());
+	            Shape intersect = Shape.intersect(spikeShape, imageShape);
+	            if (spikeBounds.intersects(bounds) && !intersect.getBoundsInLocal().isEmpty()) {
+	                
+	            	System.out.println(spike.getId());
+	            	
+	            	return true;
+	            }
+	        }
+	    }
+
+
+	    return false;
+	}
+	
+	public void handleDeath(){
+		rat.stopMovement();
+		
+        System.out.println("Completed Working Death");
+        String musicFile = "src/sounds/Death.mp3"; // Replace with your audio file's path
+		Media sound = new Media(new File(musicFile).toURI().toString());
+
+		mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.setVolume(0.05);
+		mediaPlayer.setOnEndOfMedia(() -> mediaPlayer.dispose());
+		mediaPlayer.play();
+		
+		String deadgePath = "file:src/images/deadge.png"; // Replace with the correct path to your image file
+	    Image deadgeImage = new Image(deadgePath);
+	    you.setImage(deadgeImage);
+	    levelCompleted = false;
+	    
+	    PauseTransition delay = new PauseTransition(Duration.seconds(1.5));
+	    delay.setOnFinished(event -> restartLevel());
+	    delay.play();
+	}
+
+	 private void collectSpikes(Node node, List<Node> nodes) {
+		    if (node instanceof Polygon) {
+		        nodes.add(node);
+		    }
+	
+		    if (node instanceof Parent) {
+		        Parent parent = (Parent) node;
+		        for (Node child : parent.getChildrenUnmodifiable()) {
+		            collectSpikes(child, nodes); // Recursively collect spikes from child nodes
+		        }
+		    }
+			
+		}
 	
 	
 	

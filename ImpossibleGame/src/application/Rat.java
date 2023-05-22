@@ -28,7 +28,6 @@ public class Rat {
 	private double xVelocity = 0.0;
     private double yVelocity = 0.0;
     private double speed = 3.0;
-    private boolean movingForward = false;
     private Timeline timeline = null; 
     private boolean isMoving = false;
 	
@@ -84,6 +83,7 @@ public class Rat {
 	
 	public void goForth(List<Line> lines) {
 		
+		
 		if (!isMoving && imageView != null && imageView.getScene() != null) {
 			isMoving = true;
 		
@@ -94,7 +94,9 @@ public class Rat {
 
 	        // Update the position of the imageView
 	        updatePosition(xVelocity, yVelocity);
-
+	        if (isRatImageRemoved()) {
+	            return;
+	        }
 	        // Check if the rat hits the edge of the screen
 	        double screenWidth = imageView.getScene().getWidth();
 	        double screenHeight = imageView.getScene().getHeight();
@@ -219,7 +221,7 @@ public class Rat {
 		}
 	}
 	
-	private boolean isRatImageRemoved() {
+	public boolean isRatImageRemoved() {
         return imageView == null || imageView.getParent() == null;
     }
 

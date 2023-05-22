@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Polygon?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level1Controller">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level1Controller">
    <children>
       <Text layoutX="6.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 2" />
       <Line fx:id="line1" endX="15.400001525878906" layoutX="95.0" layoutY="321.0" startX="-100.0" strokeWidth="6.0" />
@@ -20,12 +20,12 @@
       <Line fx:id="line7" endX="200.0" layoutX="398.0" layoutY="167.0" startX="61.0" strokeWidth="6.0" />
       <Line fx:id="line4" endX="67.00001525878906" endY="-37.163978576660156" layoutX="178.0" layoutY="129.0" startX="-116.24266052246094" startY="-37.16398620605469" strokeWidth="6.0" />
       <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="367.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
-      <ImageView fx:id="you" fitHeight="50.0" fitWidth="99.0" layoutX="-16.0" layoutY="347.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="you" fitHeight="38.0" fitWidth="60.0" layoutX="4.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/rat.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="79.0" layoutX="514.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cheese" fitHeight="60.0" fitWidth="79.0" layoutX="514.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/cheese.png" />
          </image>
@@ -151,7 +151,7 @@
             <Double fx:value="-60.0" />
          </points>
       </Polygon>
-      <Polygon fx:id="sp61" fill="#ff1f1f" layoutX="376.0" layoutY="299.0" rotate="-90.0" scaleX="0.2" scaleY="0.2" stroke="BLACK" strokeType="INSIDE">
+      <Polygon fx:id="sp14" fill="#ff1f1f" layoutX="376.0" layoutY="299.0" rotate="-90.0" scaleX="0.2" scaleY="0.2" stroke="BLACK" strokeType="INSIDE">
          <points>
             <Double fx:value="-50.0" />
             <Double fx:value="40.0" />
@@ -161,7 +161,7 @@
             <Double fx:value="-60.0" />
          </points>
       </Polygon>
-      <Polygon fx:id="sp62" fill="#ff1f1f" layoutX="376.0" layoutY="280.0" rotate="-90.0" scaleX="0.2" scaleY="0.2" stroke="BLACK" strokeType="INSIDE">
+      <Polygon fx:id="sp15" fill="#ff1f1f" layoutX="376.0" layoutY="280.0" rotate="-90.0" scaleX="0.2" scaleY="0.2" stroke="BLACK" strokeType="INSIDE">
          <points>
             <Double fx:value="-50.0" />
             <Double fx:value="40.0" />
