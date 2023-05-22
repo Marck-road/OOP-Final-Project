@@ -10,9 +10,9 @@ public class Level1Controller extends LevelController {
 	
 
 	@FXML ImageView you;
-	public void initialize(Scene scene) {
+	public void initialize(Scene scene, LevelTransition levelTransition) {
 		System.out.println("Initializing LevelController");
-		super.initialize(scene);
+		super.initialize(scene, levelTransition);
 		
 	}
 	

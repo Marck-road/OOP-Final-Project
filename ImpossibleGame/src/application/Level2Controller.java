@@ -9,9 +9,10 @@ import javafx.scene.input.KeyCode;
 public class Level2Controller extends Level1Controller {
 
 	@FXML ImageView you;
-	public void initialize(Scene scene) {
-		System.out.println("Initializing LevelController");
-		super.initialize(scene);
+	public void initialize(Scene scene, LevelTransition levelTransition) {
+		System.out.println("Initializing Level 2 Controller");
+        super.initialize(scene, levelTransition);
+		
 		
 	}
 	

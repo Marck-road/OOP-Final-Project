@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -14,6 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Line;
+import javafx.util.Duration;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
 
@@ -23,12 +26,15 @@ public class LevelController {
 	boolean levelCompleted = false;
 	private List<Line> lines = new ArrayList<>();
 	MediaPlayer mediaPlayer;
+	private Scene startScreen;
+	private LevelTransition levelTransition;
 
 	@FXML ImageView you;
 	@FXML ImageView cheese;
 	@FXML AnchorPane rootPane;
 	
-	public void initialize(Scene scene) {
+	public void initialize(Scene scene, LevelTransition levelTransition) {
+		this.levelTransition = levelTransition;
 	    rat = new Rat(you);
 	    System.out.println("\nDisplaying all: ");
 
@@ -59,7 +65,7 @@ public class LevelController {
 	
 	public boolean isLevelCompleted() {
     
-		return true;
+		return levelCompleted;
     }
 	
 	public void handleCollisionWithCheese() {
@@ -80,6 +86,16 @@ public class LevelController {
 
 	    rootPane.getChildren().remove(you);
 	    levelCompleted = true;
+	    
+	    PauseTransition delay = new PauseTransition(Duration.seconds(3));
+	    delay.setOnFinished(event -> loadNextLevel());
+	    delay.play();
     }
+	
+	private void loadNextLevel() {
+		levelTransition.goToNextLevel(); 
+	}
+	
+	
 	
 }
