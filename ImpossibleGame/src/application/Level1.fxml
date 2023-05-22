@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Point3D?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level1Controller">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="397.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level1Controller">
    <children>
-      <Text layoutX="6.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1" />
-      <Line fx:id="line1" endX="15.400001525878906" layoutX="95.0" layoutY="321.0" startX="-100.0" strokeWidth="6.0" />
+      <ImageView fitHeight="406.0" fitWidth="601.0" opacity="0.86" pickOnBounds="true">
+         <image>
+            <Image url="@../images/bg.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 1">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Text>
+      <ImageView fitHeight="93.0" fitWidth="121.0" layoutX="-34.0" layoutY="318.0" opacity="0.89" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../images/mousehole.jpg" />
+         </image>
+         <rotationAxis>
+            <Point3D y="90.0" z="1.0" />
+         </rotationAxis>
+      </ImageView>
+      <Line fx:id="line1" endX="15.400001525878906" layoutX="100.0" layoutY="318.0" startX="-100.0" strokeWidth="6.0" />
       <Line fx:id="line2" endX="15.4000244140625" endY="90.99996948242188" layoutX="165.0" layoutY="312.0" startX="15.4000244140625" startY="-90.00001525878906" strokeWidth="6.0" />
       <Line fx:id="line3" endX="15.400001525878906" layoutX="283.0" layoutY="271.0" startX="-100.0" strokeWidth="6.0" />
       <Line fx:id="line5" endX="135.0" endY="-314.0" layoutX="113.0" layoutY="309.0" startX="135.0" startY="-150.24266052246094" strokeWidth="6.0" />
       <Line fx:id="line6" endX="243.79998779296875" endY="85.99996948242188" layoutX="145.0" layoutY="317.0" startX="243.79998779296875" startY="-117.0" strokeWidth="6.0" />
       <Line fx:id="line7" endX="200.0" layoutX="398.0" layoutY="167.0" startX="61.0" strokeWidth="6.0" />
       <Line fx:id="line4" endX="67.00001525878906" endY="-37.163978576660156" layoutX="178.0" layoutY="129.0" startX="-116.24266052246094" startY="-37.16398620605469" strokeWidth="6.0" />
-      <Circle fill="DODGERBLUE" layoutX="34.0" layoutY="367.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
       <ImageView fx:id="you" fitHeight="38.0" fitWidth="60.0" layoutX="4.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/rat.png" />
