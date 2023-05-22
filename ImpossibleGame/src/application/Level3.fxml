@@ -5,9 +5,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level3Controller">
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="397.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level3Controller">
    <children>
       <Text layoutX="6.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 3" />
       <Circle fill="DODGERBLUE" layoutX="302.0" layoutY="60.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
@@ -21,6 +22,7 @@
             <Image url="@../images/cheese.png" />
          </image>
       </ImageView>
-      <Line fx:id="l1" endX="286.0" fill="#33ff0000" layoutX="84.0" layoutY="274.0" startX="148.0" stroke="#00ff1a" strokeWidth="20.0" />
+      <Rectangle fx:id="dangerZone" arcHeight="5.0" arcWidth="5.0" fill="#ff2121" height="20.0" layoutY="264.0" stroke="#ff0a0a00" strokeType="INSIDE" width="600.0" />
+      <Line fx:id="l1" endX="327.0" fill="#33ff0000" layoutX="63.0" layoutY="274.0" startX="148.0" stroke="#00ff1a" strokeWidth="20.0" />
    </children>
 </AnchorPane>

@@ -120,7 +120,7 @@ public class LevelController {
 	}
 	
 	protected Rat getRat() {
-		return rat;
+		return this.rat;
 	}
 	
 	private boolean areYouDead() {

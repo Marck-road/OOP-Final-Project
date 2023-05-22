@@ -24,7 +24,7 @@ import javafx.util.Duration;
 public class Rat {
 	
 	private ImageView imageView;
-	private double rotationAngle = 0.0;
+	private double rotationAngle;
 	private double xVelocity = 0.0;
     private double yVelocity = 0.0;
     private double speed = 3.0;
@@ -33,9 +33,10 @@ public class Rat {
 	
 	public Rat(ImageView imageView) {
         this.imageView = imageView;
+        this.rotationAngle = imageView.getRotate();
+
     }
 	
-	 
 	
 	public void moveLeft() {
 		if (isRatImageRemoved()) {
@@ -98,24 +99,24 @@ public class Rat {
 	            return;
 	        }
 	        // Check if the rat hits the edge of the screen
-	        double screenWidth = imageView.getScene().getWidth();
-	        double screenHeight = imageView.getScene().getHeight();
+	 
+	        double sceneWidth = imageView.getScene().getWidth();
+	        double sceneHeight = imageView.getScene().getHeight();
 
-	        if (imageView.getX() <= -10 || imageView.getX() >= 538) {
+	        if (imageView.getBoundsInParent().getMinX() <= 0 || imageView.getBoundsInParent().getMaxX() >= sceneWidth) {
 	            // Hit the left or right edge, bounce back horizontally
-	            System.out.println(screenWidth + " Left " + screenHeight + " " + imageView.getY() + " " + imageView.getX());
 	            xVelocity *= -1;
 	            rotationAngle += 90.0;
 	            imageView.setRotate(rotationAngle);
 	        }
 
-	        if (imageView.getY() <= -340 || imageView.getY() >= 20) {
+	        if (imageView.getBoundsInParent().getMinY() <= 0 || imageView.getBoundsInParent().getMaxY() >= sceneHeight) {
 	            // Hit the top or bottom edge, bounce back vertically
-	            System.out.println(screenWidth + " Up " + screenHeight + " " + imageView.getY() + " " + imageView.getX());
 	            rotationAngle += 90.0;
 	            imageView.setRotate(rotationAngle);
 	            yVelocity *= -1;
 	        }
+
 
 	        // Update the position again after potential bounce
 	        updatePosition(xVelocity, yVelocity);

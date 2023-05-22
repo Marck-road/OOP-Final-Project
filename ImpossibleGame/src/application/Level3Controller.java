@@ -15,24 +15,31 @@ public class Level3Controller extends LevelController{
 	
 	@FXML ImageView you;
 	@FXML private Line l1;
+	@FXML private Rectangle dangerZone;
     private Timeline timeline = null; 
     private double speed = 3.0;
 
 	public void initialize(Scene scene, LevelTransition levelTransition) {	
-//		Rectangle safeRectangle = new Rectangle(100, 10);
-		
-			
 		System.out.println("Initializing Level 3 Controller");
         super.initialize(scene, levelTransition);
-         
-        moveLine(l1);
+
+	    
+        moveLine();
+        
+        getRat().getImageView().boundsInParentProperty().addListener((observable, oldValue, newValue) -> {
+	        if (newValue.intersects(dangerZone.getBoundsInParent())) {
+	        	getRat().stopMovement();
+	            handleDeath();
+	        }
+	    });
+
 	}
 	
-	private void moveLine(Line safeLine) {
+	private void moveLine() {
 		timeline = new Timeline(new KeyFrame(Duration.millis(16), event -> {
-			System.out.println("Moving Line");
-			double startX = safeLine.getStartX();
-	        double endX = safeLine.getEndX();
+
+			double startX = l1.getStartX();
+	        double endX = l1.getEndX();
 
 			if (startX <= 0 && endX <= 0) {
 	            speed = Math.abs(speed); // Change direction to move right
@@ -47,6 +54,9 @@ public class Level3Controller extends LevelController{
 	    }));
 		timeline.setCycleCount(Timeline.INDEFINITE);
 	    timeline.play();
+	    
+	    
+	    
 	}
 	
 	private void updatePosition(double deltaX, double deltaY) {
@@ -62,7 +72,13 @@ public class Level3Controller extends LevelController{
 	    l1.setStartY(newStartY);
 	    l1.setEndX(newEndX);
 	    l1.setEndY(newEndY);
+	    
+	    
+	    
+	    
 	}
+	
+	
 
 	
 	
