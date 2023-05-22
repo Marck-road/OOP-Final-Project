@@ -61,7 +61,7 @@ public class LevelController {
 		        } else if(keyCode == KeyCode.E) {
 		        	handleCollisionWithCheese();
 	        	} else if (keyCode == KeyCode.R) {
-	            restartLevel();
+	            		restartLevel();
 	        	}
 		        
 		    });
