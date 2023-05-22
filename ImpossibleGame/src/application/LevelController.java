@@ -57,6 +57,8 @@ public class LevelController {
 		            
 		        }else if (keyCode == KeyCode.DOWN) {
 		            rat.turnAround();
+		        } else if(keyCode == KeyCode.E) {
+		        	handleCollisionWithCheese();
 		        }
 		        
 		    });
@@ -86,9 +88,9 @@ public class LevelController {
     }
 	
 	public void handleCollisionWithCheese() {
+		System.out.println("Completed Working");
 		rat.stopMovement();
 		controlsEnabled = false;
-        System.out.println("Completed Working");
         String musicFile = "src/sounds/Victory.mp3"; // Replace with your audio file's path
 		Media sound = new Media(new File(musicFile).toURI().toString());
 
