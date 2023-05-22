@@ -27,12 +27,5 @@ public class Level5Controller extends LevelController {
         
         
 	}
-	
-	
-	
-	
-	 
-	 
-	 
 }
 
