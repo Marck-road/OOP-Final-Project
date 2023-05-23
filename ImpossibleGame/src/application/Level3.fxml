@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Point3D?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="397.0" prefWidth="601.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level3Controller">
    <children>
-      <Text layoutX="6.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 3" />
-      <Circle fill="DODGERBLUE" layoutX="302.0" layoutY="60.0" radius="30.0" stroke="BLACK" strokeType="INSIDE" />
+      <ImageView fitHeight="404.0" fitWidth="601.0" opacity="0.86" pickOnBounds="true">
+         <image>
+            <Image url="@../images/bg.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="87.0" fitWidth="121.0" layoutX="240.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../images/mousehole.jpg" />
+         </image>
+         <rotationAxis>
+            <Point3D x="-90.0" y="90.0" z="1.0" />
+         </rotationAxis>
+      </ImageView>
+      <Text layoutX="14.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Level 3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Text>
       <ImageView fx:id="you" fitHeight="38.0" fitWidth="60.0" layoutX="272.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" rotate="80.0">
          <image>
             <Image url="@../images/rat.png" />
