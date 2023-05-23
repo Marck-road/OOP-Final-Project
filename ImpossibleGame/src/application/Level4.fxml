@@ -29,7 +29,7 @@
             <Point3D y="90.0" z="1.0" />
          </rotationAxis>
       </ImageView>
-      <ImageView fx:id="you" fitHeight="38.0" fitWidth="60.0" layoutX="27.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="you" fitHeight="38.0" fitWidth="60.0" layoutX="27.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
          <image>
             <Image url="@../images/rat.png" />
          </image>
