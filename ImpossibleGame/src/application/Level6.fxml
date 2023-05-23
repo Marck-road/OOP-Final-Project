@@ -13,7 +13,7 @@
             <Image url="@../images/tempLogo.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="196.0" layoutY="366.0" prefHeight="26.0" prefWidth="242.0" text="Develeoped By: Group GMC" textAlignment="CENTER">
+      <Label layoutX="196.0" layoutY="366.0" prefHeight="26.0" prefWidth="242.0" text="Developed By: Group GMC" textAlignment="CENTER">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font>
