@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="anchorPane" fx:id="rootPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Level6Controller">
+   <children>
+      <ImageView fx:id="view1" fitHeight="134.0" fitWidth="431.0" layoutX="116.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/tempLogo.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="view2" fitHeight="260.0" fitWidth="354.0" layoutX="180.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/rat-spinning.gif" />
+         </image>
+      </ImageView>
+      <Label layoutX="196.0" layoutY="366.0" prefHeight="26.0" prefWidth="242.0" text="Develeoped By: Group GMC" textAlignment="CENTER">
+         <font>
+            <Font name="Bell MT" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="211.0" layoutY="-35.0" prefHeight="166.0" prefWidth="374.0" text="YOU BEATED">
+         <font>
+            <Font name="Bauhaus 93" size="37.0" />
+         </font></Label>
+      <Label layoutX="130.0" layoutY="14.0" prefHeight="166.0" prefWidth="374.0" text="THE IMPOSSIBLE GAME!">
+         <font>
+            <Font name="Bauhaus 93" size="37.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

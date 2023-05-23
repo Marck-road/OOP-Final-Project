@@ -195,5 +195,9 @@
             <Double fx:value="-60.0" />
          </points>
       </Polygon>
+      <Line fx:id="line7" endX="503.0" layoutX="99.0" layoutY="418.0" startX="-100.0" strokeWidth="10.0" />
+      <Line fx:id="line8" endX="183.0" endY="73.0" layoutX="420.0" layoutY="-72.0" startX="183.0" startY="491.0" strokeWidth="10.0" />
+      <Line fx:id="line9" endX="508.0" endY="3.051757857974735E-6" layoutX="95.0" layoutY="3.0" startX="-96.0" startY="4.57763690064894E-6" strokeWidth="6.0" />
+      <Line fx:id="line10" endX="183.0" endY="73.0" layoutX="-181.0" layoutY="-75.0" startX="183.0" startY="491.0" strokeWidth="6.0" />
    </children>
 </AnchorPane>
