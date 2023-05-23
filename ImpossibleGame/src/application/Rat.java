@@ -3,11 +3,9 @@ package application;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-import javafx.scene.image.PixelReader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +14,6 @@ import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.geometry.Bounds;
-import javafx.geometry.Point2D;
 import javafx.util.Duration;
 
 

@@ -11,8 +11,6 @@
 	import javafx.scene.Scene;
 	import javafx.scene.image.Image;
 	import javafx.scene.image.ImageView;
-	import javafx.scene.layout.BorderPane;
-	import javafx.scene.layout.AnchorPane;
 	
 	import javafx.scene.media.Media;
 	import javafx.scene.media.MediaPlayer;

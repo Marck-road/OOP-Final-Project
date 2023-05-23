@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.animation.PauseTransition;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -21,7 +20,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.util.Duration;
 import javafx.scene.layout.AnchorPane;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
 
 
@@ -31,7 +29,6 @@ public class LevelController {
 	boolean levelCompleted = false;
 	private List<Line> lines = new ArrayList<>();
 	MediaPlayer mediaPlayer;
-	private Scene startScreen;
 	private LevelTransition levelTransition;
 	private boolean controlsEnabled = true;
 	@FXML ImageView you;

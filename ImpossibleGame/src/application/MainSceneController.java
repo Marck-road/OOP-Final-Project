@@ -10,7 +10,6 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 
 import java.io.IOException;
-import java.lang.System.Logger.Level;
 
 
 public class MainSceneController implements LevelTransition{
